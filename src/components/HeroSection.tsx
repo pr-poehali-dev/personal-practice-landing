@@ -1,5 +1,5 @@
 const HERO_IMAGE =
-  "https://cdn.poehali.dev/projects/30d6293c-86b2-4b4c-baf9-6d8dae9c6523/files/21dd467f-bb61-4740-845c-5637ce7c14b0.jpg";
+  "https://cdn.poehali.dev/projects/30d6293c-86b2-4b4c-baf9-6d8dae9c6523/files/f240907d-2950-45d2-a11f-ba6ab4169cbf.jpg";
 
 export default function HeroSection() {
   return (
