@@ -1,5 +1,24 @@
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import RevealSection from "@/components/RevealSection";
+
+const PREVIEW_OBSERVATIONS = [
+  {
+    number: "01",
+    title: "Тело помнит то, что разум забыл",
+    text: "Хроническое напряжение в плечах, спазм в горле, сжатый живот — это незавершённые реакции, которые тело продолжает удерживать.",
+  },
+  {
+    number: "04",
+    title: "Стресс накапливается слоями",
+    text: "Каждая непережитая ситуация добавляет новый слой напряжения. Со временем человек перестаёт их чувствовать — они становятся «нормой» тела.",
+  },
+  {
+    number: "09",
+    title: "Покой — это навык",
+    text: "Способность по-настоящему расслабляться — не врождённая черта, а навык. Тело можно заново научить состоянию покоя.",
+  },
+];
 
 export default function ContentSections() {
   return (
@@ -233,6 +252,65 @@ export default function ContentSections() {
               </div>
             </RevealSection>
           ))}
+        </div>
+      </section>
+
+      {/* НАБЛЮДЕНИЯ */}
+      <section className="px-8 md:px-20 py-20 md:py-32" style={{ backgroundColor: "hsl(40,30%,97%)" }}>
+        <div className="max-w-5xl mx-auto">
+          <RevealSection>
+            <p className="font-golos text-xs tracking-[0.25em] uppercase mb-6" style={{ color: "hsl(35,15%,60%)" }}>
+              Из практики
+            </p>
+            <h2 className="font-cormorant font-light leading-tight mb-4" style={{ fontSize: "clamp(2rem,4vw,3.2rem)", color: "hsl(220,12%,16%)" }}>
+              Мои наблюдения
+            </h2>
+            <div className="line-accent mb-12" />
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {PREVIEW_OBSERVATIONS.map((obs, i) => (
+              <RevealSection key={obs.number} delay={i * 100}>
+                <div
+                  className="relative flex flex-col p-8 h-full transition-transform duration-300 hover:-translate-y-1"
+                  style={{
+                    backgroundColor: "hsl(40,28%,94%)",
+                    boxShadow: "0 2px 6px hsla(220,12%,20%,0.07), 0 8px 24px hsla(220,12%,20%,0.06)",
+                    borderTop: "3px solid hsl(35,15%,78%)",
+                    minHeight: "220px",
+                  }}
+                >
+                  <div
+                    className="absolute inset-x-8 bottom-8 top-20 pointer-events-none"
+                    style={{
+                      backgroundImage: "repeating-linear-gradient(to bottom, transparent, transparent 27px, hsl(35,20%,86%) 27px, hsl(35,20%,86%) 28px)",
+                    }}
+                  />
+                  <div className="relative z-10">
+                    <span className="font-cormorant font-light block mb-3" style={{ fontSize: "2rem", color: "hsl(35,15%,72%)", lineHeight: 1 }}>
+                      {obs.number}
+                    </span>
+                    <h3 className="font-cormorant mb-4 leading-snug" style={{ fontSize: "1.1rem", color: "hsl(220,12%,22%)", fontWeight: 500 }}>
+                      {obs.title}
+                    </h3>
+                    <p className="font-golos font-light leading-relaxed" style={{ fontSize: "0.85rem", color: "hsl(220,10%,42%)" }}>
+                      {obs.text}
+                    </p>
+                  </div>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+
+          <RevealSection>
+            <Link
+              to="/observations"
+              className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50 inline-flex items-center gap-3"
+              style={{ color: "hsl(220,12%,28%)" }}
+            >
+              Все наблюдения →
+            </Link>
+          </RevealSection>
         </div>
       </section>
     </>
