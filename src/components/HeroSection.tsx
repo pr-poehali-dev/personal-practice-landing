@@ -49,6 +49,12 @@ export default function HeroSection() {
             <br />
             Водопьянов
           </h1>
+          <p
+            className="font-cormorant"
+            style={{ color: "hsl(220,12%,40%)", fontSize: "1.15rem", letterSpacing: "0.06em", marginTop: "-1.5rem", marginBottom: "2rem" }}
+          >
+            Телесно-ориентированный психолог
+          </p>
           <div
             className="animate-fade-up line-accent mb-8"
             style={{ animationDelay: "0.35s" }}
