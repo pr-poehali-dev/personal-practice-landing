@@ -19,13 +19,22 @@ export default function HeroSection() {
         >
           СВ
         </span>
-        <a
-          href="#contact"
-          className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-          style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-        >
-          Записаться
-        </a>
+        <div className="flex items-center gap-8">
+          <a
+            href="/observations"
+            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
+            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
+          >
+            Наблюдения
+          </a>
+          <a
+            href="#contact"
+            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
+            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
+          >
+            Записаться
+          </a>
+        </div>
       </nav>
 
       {/* HERO */}
