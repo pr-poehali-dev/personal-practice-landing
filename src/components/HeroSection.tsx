@@ -17,7 +17,7 @@ export default function HeroSection() {
           className="font-cormorant text-lg uppercase"
           style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.18em" }}
         >
-          С. Водопьянов
+          СВ
         </span>
         <a
           href="#contact"
