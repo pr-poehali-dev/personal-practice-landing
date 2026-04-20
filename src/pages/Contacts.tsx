@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 
 const contacts = [
@@ -126,7 +127,7 @@ export default function Contacts() {
         </RevealSection>
 
         {/* Back */}
-        <div className="mt-16">
+        <div className="mt-16 mb-8">
           <Link
             to="/"
             className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
@@ -136,6 +137,7 @@ export default function Contacts() {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

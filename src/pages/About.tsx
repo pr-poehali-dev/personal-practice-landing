@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 
 const education = [
@@ -338,7 +339,7 @@ export default function About() {
       </section>
 
       {/* BACK */}
-      <div className="px-6 md:px-12 lg:px-20 py-16 max-w-6xl mx-auto">
+      <div className="px-6 md:px-12 lg:px-20 pt-16 pb-8 max-w-6xl mx-auto">
         <Link
           to="/"
           className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
@@ -347,6 +348,7 @@ export default function About() {
           ← Главная
         </Link>
       </div>
+      <Footer />
     </div>
   );
 }
