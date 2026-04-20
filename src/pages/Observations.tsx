@@ -91,13 +91,22 @@ export default function Observations() {
         >
           СВ
         </Link>
-        <Link
-          to="/#contact"
-          className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-          style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-        >
-          Записаться
-        </Link>
+        <div className="flex items-center gap-8">
+          <Link
+            to="/about"
+            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
+            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
+          >
+            Обо мне
+          </Link>
+          <Link
+            to="/#contact"
+            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
+            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
+          >
+            Записаться
+          </Link>
+        </div>
       </nav>
 
       {/* HEADER */}

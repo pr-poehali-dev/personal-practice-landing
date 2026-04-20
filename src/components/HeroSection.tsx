@@ -21,6 +21,13 @@ export default function HeroSection() {
         </span>
         <div className="flex items-center gap-8">
           <a
+            href="/about"
+            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
+            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
+          >
+            Обо мне
+          </a>
+          <a
             href="/observations"
             className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
             style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
