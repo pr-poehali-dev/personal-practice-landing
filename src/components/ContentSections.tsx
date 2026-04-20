@@ -79,6 +79,7 @@ export default function ContentSections() {
               "Перегрузка и стресс",
               "Дискомфорт в шее, спине, пояснице",
               "Сложности с расслаблением",
+              "Тревога и хроническое беспокойство",
             ].map((item, i) => (
               <RevealSection key={i} delay={i * 80}>
                 <div className="flex items-start gap-4 py-3" style={{ borderBottom: "1px solid hsl(35,20%,84%)" }}>
