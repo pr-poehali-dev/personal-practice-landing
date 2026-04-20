@@ -11,10 +11,12 @@ interface FormErrors {
   name?: string;
   contact?: string;
   message?: string;
+  consent?: string;
 }
 
 export default function ContactSection() {
   const [form, setForm] = useState<FormData>({ name: "", contact: "", message: "" });
+  const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -23,6 +25,7 @@ export default function ContactSection() {
     if (!form.name.trim()) e.name = "Введите имя";
     if (!form.contact.trim()) e.contact = "Укажите контакт";
     if (!form.message.trim()) e.message = "Напишите запрос";
+    if (!consent) e.consent = "Необходимо принять условия";
     return e;
   };
 
@@ -167,6 +170,37 @@ export default function ContactSection() {
                     {errors.message && (
                       <p className="mt-1 text-xs font-golos" style={{ color: "#b03030" }}>
                         {errors.message}
+                      </p>
+                    )}
+                  </div>
+                </RevealSection>
+                <RevealSection delay={370}>
+                  <div>
+                    <label className="flex items-start gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(e) => {
+                          setConsent(e.target.checked);
+                          if (errors.consent) setErrors((prev) => ({ ...prev, consent: undefined }));
+                        }}
+                        className="mt-0.5 shrink-0 w-4 h-4 cursor-pointer accent-current"
+                        style={{ accentColor: "hsl(220,12%,16%)" }}
+                      />
+                      <span className="font-golos font-light leading-relaxed" style={{ fontSize: "0.82rem", color: "hsl(220,10%,45%)" }}>
+                        Я ознакомился(-ась) и принимаю условия{" "}
+                        <a href="/privacy" target="_blank" className="underline underline-offset-2 transition-opacity hover:opacity-60" style={{ color: "hsl(220,12%,30%)" }}>
+                          Политики конфиденциальности
+                        </a>{" "}
+                        и{" "}
+                        <a href="/offer" target="_blank" className="underline underline-offset-2 transition-opacity hover:opacity-60" style={{ color: "hsl(220,12%,30%)" }}>
+                          Публичной оферты
+                        </a>
+                      </span>
+                    </label>
+                    {errors.consent && (
+                      <p className="mt-2 text-xs font-golos" style={{ color: "#b03030" }}>
+                        {errors.consent}
                       </p>
                     )}
                   </div>
