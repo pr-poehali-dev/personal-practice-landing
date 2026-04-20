@@ -100,21 +100,19 @@ export default function About() {
 
               {/* Подпись */}
               <svg
-                viewBox="0 0 180 60"
+                viewBox="0 0 220 75"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ width: "140px", opacity: 0.55, marginTop: "0.5rem" }}
+                style={{ width: "160px", opacity: 0.5, marginTop: "0.75rem" }}
                 fill="none"
-                stroke="hsl(220,12%,22%)"
-                strokeWidth="1.5"
+                stroke="hsl(220,12%,18%)"
+                strokeWidth="1.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                {/* Буква В */}
-                <path d="M14 10 L14 48" />
-                <path d="M14 10 C28 10 32 18 28 26 C34 26 38 35 32 42 C28 48 14 48 14 48" />
-                <path d="M14 27 L27 27" />
-                {/* Волнистая линия-росчерк */}
-                <path d="M38 34 C50 20 62 46 76 30 C88 16 100 44 116 28 C128 16 140 36 155 28 C162 24 166 30 170 26" />
+                {/* Овальная петля — начало подписи */}
+                <path d="M18 38 C10 28 8 16 16 11 C24 6 36 10 40 20 C44 30 40 42 30 46 C20 50 10 44 12 36 C14 28 24 26 30 32" />
+                {/* Выход из петли и плавные волны вправо */}
+                <path d="M30 32 C38 38 44 30 54 33 C62 36 66 28 76 30 C86 32 88 24 100 27 C112 30 114 22 126 25 C136 27 140 22 152 24 C162 25 168 30 175 27" />
               </svg>
             </div>
           </RevealSection>
