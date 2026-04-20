@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import RevealSection from "@/components/RevealSection";
 
@@ -25,9 +25,18 @@ const contacts = [
 ];
 
 export default function Contacts() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
+
+  const goToForm = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 400);
+  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "hsl(40,30%,97%)" }}>
@@ -107,13 +116,13 @@ export default function Contacts() {
 
         {/* CTA */}
         <RevealSection delay={400}>
-          <Link
-            to="/#contact"
+          <button
+            onClick={goToForm}
             className="inline-block font-golos text-xs tracking-[0.2em] uppercase px-8 py-4 transition-opacity hover:opacity-70"
             style={{ backgroundColor: "hsl(220,12%,16%)", color: "hsl(40,30%,97%)" }}
           >
             Записаться на консультацию
-          </Link>
+          </button>
         </RevealSection>
 
         {/* Back */}
