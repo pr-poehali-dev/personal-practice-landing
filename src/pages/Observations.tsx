@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 
 const observations = [
@@ -52,10 +52,18 @@ const observations = [
 
 export default function Observations() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
+
+  const goToForm = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 400);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -167,13 +175,13 @@ export default function Observations() {
         >
           ← На главную
         </Link>
-        <Link
-          to="/#contact"
+        <button
+          onClick={goToForm}
           className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
           style={{ color: "hsl(220,12%,28%)" }}
         >
           Записаться на консультацию →
-        </Link>
+        </button>
       </div>
     </div>
   );
