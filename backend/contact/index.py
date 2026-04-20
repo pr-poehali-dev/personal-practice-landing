@@ -1,7 +1,7 @@
 import json
 import os
 import smtplib
-# redeploy
+# redeploy v2
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
