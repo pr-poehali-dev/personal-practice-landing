@@ -34,7 +34,7 @@ def handler(event: dict, context) -> dict:
     chat_id = "387846596"
 
     text = (
-        f"📩 *Новая заявка с сайта*\n\n"
+        f"📩 *Новая заявка с сайта vodopianov.ru*\n\n"
         f"👤 *Имя:* {name}\n"
         f"📞 *Телефон:* {contact}\n"
         f"💬 *Запрос:* {message}"
