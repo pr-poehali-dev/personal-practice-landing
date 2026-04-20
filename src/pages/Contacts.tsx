@@ -62,7 +62,7 @@ export default function Contacts() {
         </RevealSection>
 
         {/* Contact list */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-2xl mb-20">
+        <div className="flex flex-col max-w-xl mb-20">
           {contacts.map((c, i) => (
             <RevealSection key={i} delay={i * 100}>
               <div
