@@ -48,9 +48,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="font-golos text-xs tracking-[0.18em] uppercase inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all hover:opacity-90"
               style={{
-                background: "linear-gradient(135deg, hsl(210,80%,42%), hsl(195,85%,38%))",
-                color: "hsl(0,0%,100%)",
-                boxShadow: "0 2px 12px hsla(210,80%,42%,0.35)",
+                background: "hsl(0,0%,100%)",
+                color: "hsl(220,12%,22%)",
+                border: "1.5px solid hsl(220,12%,22%)",
+                boxShadow: "none",
                 letterSpacing: "0.18em",
               }}
             >
