@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import NavBar from "@/components/NavBar";
 
 const observations = [
   {
@@ -65,7 +66,7 @@ export default function Observations() {
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.08 }
     );
     cardRefs.current.forEach((el) => {
       if (el) observer.observe(el);
@@ -75,66 +76,38 @@ export default function Observations() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "hsl(40,30%,97%)" }}>
-      {/* NAV */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6"
-        style={{
-          backgroundColor: "hsla(40,30%,97%,0.92)",
-          backdropFilter: "blur(12px)",
-          borderBottom: "1px solid hsl(35,25%,90%)",
-        }}
-      >
-        <Link
-          to="/"
-          className="font-cormorant text-lg uppercase"
-          style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.18em" }}
-        >
-          СВ
-        </Link>
-        <div className="flex items-center gap-8">
-          <Link
-            to="/about"
-            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-          >
-            Обо мне
-          </Link>
-          <Link
-            to="/#contact"
-            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-          >
-            Записаться
-          </Link>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* HEADER */}
-      <div className="pt-40 pb-16 px-8 md:px-20 max-w-5xl mx-auto">
+      <div className="pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto">
         <p
-          className="font-golos text-xs tracking-[0.25em] uppercase mb-6"
+          className="font-golos text-xs tracking-[0.25em] uppercase mb-5"
           style={{ color: "hsl(35,15%,60%)" }}
         >
           Из практики
         </p>
-        <h1
-          className="font-cormorant font-light leading-[1.08] mb-6"
-          style={{ fontSize: "clamp(2.5rem,5vw,4.5rem)", color: "hsl(220,12%,16%)" }}
-        >
-          Наблюдения
-        </h1>
-        <div className="line-accent mb-8" />
-        <p
-          className="font-cormorant italic leading-relaxed max-w-lg"
-          style={{ fontSize: "1.2rem", color: "hsl(220,10%,48%)" }}
-        >
-          То, что я замечаю снова и снова — в работе с разными людьми, в разных запросах.
-        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-end mb-12">
+          <div>
+            <h1
+              className="font-cormorant font-light leading-[1.05] mb-5"
+              style={{ fontSize: "clamp(2.5rem,5vw,5rem)", color: "hsl(220,12%,16%)" }}
+            >
+              Наблюдения
+            </h1>
+            <div className="line-accent" />
+          </div>
+          <p
+            className="font-cormorant italic leading-relaxed"
+            style={{ fontSize: "clamp(1rem,1.6vw,1.25rem)", color: "hsl(220,10%,48%)" }}
+          >
+            То, что я замечаю снова и снова — в работе с разными людьми, в разных запросах.
+          </p>
+        </div>
       </div>
 
       {/* NOTES GRID */}
-      <div className="px-8 md:px-20 pb-32 max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="px-6 md:px-12 lg:px-20 pb-24 md:pb-32 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {observations.map((obs, i) => (
             <div
               key={obs.number}
@@ -142,27 +115,23 @@ export default function Observations() {
               className="reveal"
               style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
             >
-              {/* Paper note card */}
               <div
-                className="relative h-full flex flex-col p-8 transition-transform duration-300 hover:-translate-y-1"
+                className="relative h-full flex flex-col p-7 md:p-8 transition-transform duration-300 hover:-translate-y-1"
                 style={{
                   backgroundColor: "hsl(40,28%,94%)",
-                  boxShadow:
-                    "0 2px 6px hsla(220,12%,20%,0.07), 0 8px 24px hsla(220,12%,20%,0.06)",
+                  boxShadow: "0 2px 6px hsla(220,12%,20%,0.07), 0 8px 24px hsla(220,12%,20%,0.06)",
                   borderTop: "3px solid hsl(35,15%,78%)",
                   minHeight: "260px",
                 }}
               >
-                {/* Ruled lines decoration */}
+                {/* Ruled lines */}
                 <div
-                  className="absolute inset-x-8 bottom-8 top-20 pointer-events-none"
+                  className="absolute inset-x-7 md:inset-x-8 bottom-7 md:bottom-8 top-20 pointer-events-none"
                   style={{
                     backgroundImage:
                       "repeating-linear-gradient(to bottom, transparent, transparent 27px, hsl(35,20%,86%) 27px, hsl(35,20%,86%) 28px)",
                   }}
                 />
-
-                {/* Content */}
                 <div className="relative z-10">
                   <span
                     className="font-cormorant font-light block mb-4"
@@ -172,7 +141,7 @@ export default function Observations() {
                   </span>
                   <h2
                     className="font-cormorant mb-5 leading-snug"
-                    style={{ fontSize: "1.2rem", color: "hsl(220,12%,22%)", fontWeight: 500 }}
+                    style={{ fontSize: "clamp(1rem,1.4vw,1.2rem)", color: "hsl(220,12%,22%)", fontWeight: 500 }}
                   >
                     {obs.title}
                   </h2>
@@ -189,14 +158,21 @@ export default function Observations() {
         </div>
       </div>
 
-      {/* BACK LINK */}
-      <div className="px-8 md:px-20 pb-20 max-w-5xl mx-auto">
+      {/* FOOTER LINKS */}
+      <div className="px-6 md:px-12 lg:px-20 pb-20 max-w-6xl mx-auto flex flex-col sm:flex-row gap-6 sm:gap-12">
         <Link
           to="/"
           className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
           style={{ color: "hsl(220,10%,48%)" }}
         >
           ← На главную
+        </Link>
+        <Link
+          to="/#contact"
+          className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
+          style={{ color: "hsl(220,12%,28%)" }}
+        >
+          Записаться на консультацию →
         </Link>
       </div>
     </div>

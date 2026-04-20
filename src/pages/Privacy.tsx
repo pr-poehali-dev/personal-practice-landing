@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import LegalLayout from "@/components/LegalLayout";
 
 const sections = [
   {
@@ -94,147 +94,21 @@ export default function Privacy() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "hsl(40,30%,97%)" }}>
-      {/* NAV */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6"
-        style={{
-          backgroundColor: "hsla(40,30%,97%,0.92)",
-          backdropFilter: "blur(12px)",
-          borderBottom: "1px solid hsl(35,25%,90%)",
-        }}
-      >
-        <Link
-          to="/"
-          className="font-cormorant text-lg uppercase"
-          style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.18em" }}
-        >
-          СВ
-        </Link>
-        <div className="flex items-center gap-8">
-          <Link
-            to="/about"
-            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-          >
-            Обо мне
-          </Link>
-          <Link
-            to="/#contact"
-            className="font-golos text-xs tracking-widest uppercase transition-opacity hover:opacity-50"
-            style={{ color: "hsl(220,12%,16%)", letterSpacing: "0.2em" }}
-          >
-            Записаться
-          </Link>
-        </div>
-      </nav>
-
-      {/* HEADER */}
-      <div className="pt-40 pb-12 px-8 md:px-20 max-w-4xl mx-auto">
-        <p
-          className="font-golos text-xs tracking-[0.25em] uppercase mb-6"
-          style={{ color: "hsl(35,15%,60%)" }}
-        >
-          Правовые документы
-        </p>
-        <h1
-          className="font-cormorant font-light leading-[1.08] mb-6"
-          style={{ fontSize: "clamp(2rem,4vw,3.5rem)", color: "hsl(220,12%,16%)" }}
-        >
-          Политика конфиденциальности
-        </h1>
-        <div className="line-accent mb-10" />
-
-        {/* Meta block */}
-        <div
-          className="inline-flex flex-col gap-2 px-6 py-5 mb-10"
-          style={{
-            backgroundColor: "hsl(40,24%,92%)",
-            borderLeft: "3px solid hsl(35,15%,72%)",
-          }}
-        >
-          <p className="font-golos text-xs leading-relaxed" style={{ color: "hsl(220,12%,40%)" }}>
-            УТВЕРЖДЕНА · Приказ ИП Водопьянов С.Г. № 2 от 24.03.2008 г.
-          </p>
-          <p className="font-golos text-xs leading-relaxed" style={{ color: "hsl(220,12%,40%)" }}>
-            Размещена на сайте: <span style={{ color: "hsl(220,12%,28%)" }}>vodopianov.ru/privacy</span>
-          </p>
-          <p className="font-golos text-xs leading-relaxed" style={{ color: "hsl(220,12%,40%)" }}>
-            Дата размещения: 27.03.2008 г.
-          </p>
-        </div>
-
-        {/* Intro */}
-        <div className="flex flex-col gap-5 mb-16 max-w-2xl">
-          <p className="font-golos font-light leading-relaxed" style={{ fontSize: "0.95rem", color: "hsl(220,10%,38%)" }}>
-            Настоящая Политика конфиденциальности регулирует порядок обработки и использования персональных данных физических лиц, пользующихся сервисами Сайта <span style={{ color: "hsl(220,12%,26%)" }}>https://vodopianov.ru</span> Индивидуальным предпринимателем Водопьяновым Сергеем Геннадьевичем (далее — Оператор).
-          </p>
-          <p className="font-golos font-light leading-relaxed" style={{ fontSize: "0.95rem", color: "hsl(220,10%,38%)" }}>
-            Передавая Оператору персональные данные посредством использования Сайта и регистрации на Сайте, Пользователь дает свое согласие (добровольное и бессрочное) на использование персональных данных на условиях, изложенных в настоящей Политике конфиденциальности.
-          </p>
-          <p className="font-golos font-light leading-relaxed" style={{ fontSize: "0.95rem", color: "hsl(220,10%,38%)" }}>
-            Если Пользователь не согласен с условиями настоящей Политики конфиденциальности, он обязан прекратить использование Сайта. Безусловным акцептом настоящей Политики конфиденциальности является начало использования Сайта Пользователем.
-          </p>
-          <p className="font-golos font-light leading-relaxed" style={{ fontSize: "0.95rem", color: "hsl(220,10%,38%)" }}>
-            Оператор может обновлять Политику по мере необходимости. Рекомендуем Пользователям периодически проверять актуальность данной Политики. Продолжая пользоваться Сайтом после изменения Политики, Вы подтверждаете согласие с внесенными изменениями.
-          </p>
-        </div>
-
-        {/* Sections */}
-        <div className="flex flex-col gap-0">
-          {sections.map((sec) => (
-            <div
-              key={sec.num}
-              className="py-10"
-              style={{ borderTop: "1px solid hsl(35,20%,84%)" }}
-            >
-              <div className="flex items-baseline gap-5 mb-6">
-                <span
-                  className="font-cormorant font-light shrink-0"
-                  style={{ fontSize: "2rem", color: "hsl(35,15%,72%)", lineHeight: 1 }}
-                >
-                  {sec.num}
-                </span>
-                <h2
-                  className="font-cormorant"
-                  style={{ fontSize: "1.25rem", color: "hsl(220,12%,20%)", fontWeight: 500 }}
-                >
-                  {sec.title}
-                </h2>
-              </div>
-              <div className="flex flex-col gap-4 max-w-2xl">
-                {sec.items.map((item) => (
-                  <div key={item.num} className="flex gap-4">
-                    <span
-                      className="font-golos text-xs shrink-0 mt-0.5"
-                      style={{ color: "hsl(35,15%,64%)", minWidth: "2.2rem" }}
-                    >
-                      {item.num}
-                    </span>
-                    <p
-                      className="font-golos font-light leading-relaxed whitespace-pre-line"
-                      style={{ fontSize: "0.92rem", color: "hsl(220,10%,38%)" }}
-                    >
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* BACK */}
-      <div className="px-8 md:px-20 py-16 max-w-4xl mx-auto">
-        <Link
-          to="/"
-          className="font-golos text-xs tracking-[0.2em] uppercase transition-opacity hover:opacity-50"
-          style={{ color: "hsl(220,10%,56%)" }}
-        >
-          ← Главная
-        </Link>
-      </div>
-    </div>
+    <LegalLayout
+      label="Правовые документы"
+      title="Политика конфиденциальности"
+      meta={{
+        approved: "УТВЕРЖДЕНА · Приказ ИП Водопьянов С.Г. № 2 от 24.03.2008 г.",
+        url: "vodopianov.ru/privacy",
+        date: "27.03.2008 г.",
+      }}
+      intro={[
+        "Настоящая Политика конфиденциальности регулирует порядок обработки и использования персональных данных физических лиц, пользующихся сервисами Сайта https://vodopianov.ru Индивидуальным предпринимателем Водопьяновым Сергеем Геннадьевичем (далее — Оператор).",
+        "Передавая Оператору персональные данные посредством использования Сайта и регистрации на Сайте, Пользователь дает свое согласие (добровольное и бессрочное) на использование персональных данных на условиях, изложенных в настоящей Политике конфиденциальности.",
+        "Если Пользователь не согласен с условиями настоящей Политики конфиденциальности, он обязан прекратить использование Сайта. Безусловным акцептом настоящей Политики является начало использования Сайта Пользователем.",
+        "Оператор может обновлять Политику по мере необходимости. Продолжая пользоваться Сайтом после изменения Политики, Вы подтверждаете согласие с внесенными изменениями.",
+      ]}
+      sections={sections}
+    />
   );
 }
