@@ -106,20 +106,21 @@ export default function About() {
           {/* Photo placeholder */}
           <RevealSection>
             <div
-              className="w-full aspect-[3/4] flex items-end justify-center relative overflow-hidden"
+              className="w-full aspect-[3/4] relative overflow-hidden"
               style={{
-                backgroundColor: "hsl(40,20%,88%)",
+                backgroundColor: "hsl(40,20%,94%)",
                 boxShadow: "0 4px 24px hsla(220,12%,20%,0.08)",
               }}
             >
+              <img
+                src="https://cdn.poehali.dev/projects/30d6293c-86b2-4b4c-baf9-6d8dae9c6523/bucket/8f80583d-705e-46d9-abef-99dfb3007024.png"
+                alt="Сергей Водопьянов"
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
               <div
-                className="absolute inset-0 flex flex-col items-center justify-center gap-3"
+                className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-0"
                 style={{ color: "hsl(35,15%,68%)" }}
               >
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                  <circle cx="12" cy="8" r="3.5" />
-                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                </svg>
                 <span
                   className="font-golos text-xs tracking-[0.2em] uppercase"
                   style={{ color: "hsl(35,15%,68%)" }}
