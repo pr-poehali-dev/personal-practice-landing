@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Offer from "./pages/Offer";
 import Contacts from "./pages/Contacts";
+import CookieBanner from "./components/CookieBanner";
 
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <CookieBanner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/observations" element={<Observations />} />
