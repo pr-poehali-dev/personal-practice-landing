@@ -20,8 +20,8 @@ const contacts = [
   },
   {
     label: "E-mail",
-    value: "mail@vodapianoff.ru",
-    href: "mailto:mail@vodapianoff.ru",
+    value: "mail@vodopianoff.ru",
+    href: "mailto:mail@vodopianoff.ru",
     external: false,
   },
 ];
