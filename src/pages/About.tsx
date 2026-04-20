@@ -102,7 +102,7 @@ export default function About() {
         </RevealSection>
 
         {/* PHOTO + INTRO */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center mb-20">
           {/* Photo placeholder */}
           <RevealSection>
             <div
@@ -133,7 +133,7 @@ export default function About() {
 
           {/* Intro text */}
           <RevealSection delay={100}>
-            <div className="flex flex-col gap-6 pt-2">
+            <div className="flex flex-col gap-6 md:justify-center md:h-full">
               <p
                 className="font-cormorant font-light leading-relaxed"
                 style={{ fontSize: "clamp(1.3rem,2.5vw,1.7rem)", color: "hsl(220,12%,20%)" }}
