@@ -75,7 +75,7 @@ export default function About() {
               }}
             >
               <img
-                src="https://cdn.poehali.dev/projects/30d6293c-86b2-4b4c-baf9-6d8dae9c6523/bucket/d0905e25-eed9-4b33-bf5c-dc9d94d435a7.jpg"
+                src="https://cdn.poehali.dev/projects/30d6293c-86b2-4b4c-baf9-6d8dae9c6523/bucket/446a850d-bc00-42e6-8eb8-c2cb14d62788.png"
                 alt="Сергей Водопьянов"
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />
