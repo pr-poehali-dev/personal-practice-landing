@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface NavBarProps {
   variant?: "default" | "dark";
@@ -9,6 +9,20 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    if (location.pathname === "/") {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+      }, 400);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,10 +41,9 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
   const textColor = isDark ? "hsl(40,30%,97%)" : "hsl(220,12%,16%)";
   const borderColor = isDark ? "hsl(220,12%,24%)" : "hsl(35,25%,90%)";
 
-  const links = [
+  const navLinks = [
     { to: "/about", label: "Обо мне" },
     { to: "/observations", label: "Наблюдения" },
-    { to: "/#contact", label: "Записаться" },
   ];
 
   return (
@@ -53,7 +66,7 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
-          {links.map((l) => (
+          {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
@@ -63,6 +76,13 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
               {l.label}
             </Link>
           ))}
+          <button
+            onClick={handleContact}
+            className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+            style={{ color: textColor }}
+          >
+            Записаться
+          </button>
         </div>
 
         {/* Mobile burger */}
@@ -104,7 +124,7 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
           pointerEvents: menuOpen ? "auto" : "none",
         }}
       >
-        {links.map((l) => (
+        {navLinks.map((l) => (
           <Link
             key={l.to}
             to={l.to}
@@ -118,6 +138,17 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
             {l.label}
           </Link>
         ))}
+        <button
+          onClick={handleContact}
+          className="font-cormorant font-light uppercase"
+          style={{
+            fontSize: "2rem",
+            color: isDark ? "hsl(40,30%,97%)" : "hsl(220,12%,16%)",
+            letterSpacing: "0.12em",
+          }}
+        >
+          Записаться
+        </button>
       </div>
     </>
   );
