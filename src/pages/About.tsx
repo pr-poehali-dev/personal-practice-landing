@@ -97,6 +97,25 @@ export default function About() {
               >
                 Моя задача — не просто снять напряжение, а помочь системе вернуться в более устойчивое и естественное состояние.
               </p>
+
+              {/* Подпись */}
+              <svg
+                viewBox="0 0 180 60"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ width: "140px", opacity: 0.55, marginTop: "0.5rem" }}
+                fill="none"
+                stroke="hsl(220,12%,22%)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {/* Буква В */}
+                <path d="M14 10 L14 48" />
+                <path d="M14 10 C28 10 32 18 28 26 C34 26 38 35 32 42 C28 48 14 48 14 48" />
+                <path d="M14 27 L27 27" />
+                {/* Волнистая линия-росчерк */}
+                <path d="M38 34 C50 20 62 46 76 30 C88 16 100 44 116 28 C128 16 140 36 155 28 C162 24 166 30 170 26" />
+              </svg>
             </div>
           </RevealSection>
         </div>
