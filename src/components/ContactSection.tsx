@@ -262,6 +262,13 @@ export default function ContactSection() {
                 Наблюдения
               </a>
               <a
+                href="/contacts"
+                className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+                style={{ color: "hsl(220,12%,36%)" }}
+              >
+                Контакты
+              </a>
+              <a
                 href="#contact"
                 className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
                 style={{ color: "hsl(220,12%,36%)" }}
