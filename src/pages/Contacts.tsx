@@ -16,6 +16,7 @@ const contacts = [
     value: "+7 902 900 74 74",
     href: "tel:+79029007474",
     external: false,
+    note: "с 11.00 до 19.00 по будням",
   },
   {
     label: "E-mail",
@@ -89,6 +90,11 @@ export default function Contacts() {
                     </span>
                   )}
                 </a>
+                {"note" in c && c.note && (
+                  <p className="font-golos font-light mt-2" style={{ fontSize: "0.8rem", color: "hsl(35,15%,62%)" }}>
+                    {c.note}
+                  </p>
+                )}
               </div>
             </RevealSection>
           ))}
