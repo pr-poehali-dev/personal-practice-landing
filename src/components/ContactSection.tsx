@@ -146,7 +146,7 @@ export default function ContactSection() {
                   <div>
                     <input
                       type="text"
-                      placeholder="Телефон или Telegram"
+                      placeholder="Телефон"
                       value={form.contact}
                       onChange={handleChange("contact")}
                       className={`field-input${errors.contact ? " error" : ""}`}
