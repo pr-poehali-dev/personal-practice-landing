@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const observations = [
   {
@@ -52,6 +53,12 @@ const observations = [
 ];
 
 export default function Observations() {
+  usePageMeta({
+    title: "Наблюдения из практики — Сергей Водопьянов",
+    description: "Профессиональные наблюдения телесно-ориентированного психолога о связи тела, психики и стресса. Как тело хранит напряжение, тревогу и усталость.",
+    keywords: "наблюдения психолога, тело и психика, тревога в теле, хроническое напряжение, стресс и тело, телесные блоки, психосоматика",
+  });
+
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const navigate = useNavigate();
 

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import RevealSection from "@/components/RevealSection";
 
 const contacts = [
@@ -27,6 +28,12 @@ const contacts = [
 ];
 
 export default function Contacts() {
+  usePageMeta({
+    title: "Контакты — Сергей Водопьянов, психолог. Москва",
+    description: "Адрес, телефон и e-mail Сергея Водопьянова. Москва, ул. Новослободская, д. 14/19 стр. 1. Запись на консультацию по телефону или онлайн.",
+    keywords: "контакты психолог Москва, записаться на консультацию, Новослободская психолог, Водопьянов контакты, психолог телефон Москва",
+  });
+
   const navigate = useNavigate();
 
   useEffect(() => {

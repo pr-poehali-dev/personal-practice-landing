@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Footer from "@/components/Footer";
 import RevealSection from "@/components/RevealSection";
 
@@ -31,6 +32,12 @@ const results = [
 ];
 
 export default function About() {
+  usePageMeta({
+    title: "Обо мне — Сергей Водопьянов, телесно-ориентированный психолог",
+    description: "Подход, образование и принципы работы Сергея Водопьянова. Телесно-ориентированная практика, психология, регуляция ВНС. ВШЭ, European School of Coaching, программа Alain Lignon.",
+    keywords: "о психологе Водопьянов, телесно-ориентированная психология, образование психолог, ВШЭ психология, executive coach, регуляция ВНС терапия",
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);

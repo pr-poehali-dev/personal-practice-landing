@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import LegalLayout from "@/components/LegalLayout";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const sections = [
   {
@@ -116,6 +117,12 @@ const RequisitesBlock = () => (
 );
 
 export default function Offer() {
+  usePageMeta({
+    title: "Публичная оферта — vodopianov.ru",
+    description: "Публичный договор оферты на оказание информационных услуг. ИП Водопьянов Сергей Геннадьевич, ОГРНИП 321508100047334.",
+    keywords: "публичная оферта, договор оферты, ИП Водопьянов, информационные услуги",
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);

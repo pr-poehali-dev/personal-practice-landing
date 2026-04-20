@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import LegalLayout from "@/components/LegalLayout";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const sections = [
   {
@@ -89,6 +90,12 @@ const sections = [
 ];
 
 export default function Privacy() {
+  usePageMeta({
+    title: "Политика конфиденциальности — vodopianov.ru",
+    description: "Политика конфиденциальности сайта vodopianov.ru. Порядок обработки персональных данных ИП Водопьянов С.Г.",
+    keywords: "политика конфиденциальности, персональные данные, ИП Водопьянов",
+  });
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
