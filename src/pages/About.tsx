@@ -108,7 +108,7 @@ export default function About() {
             <div
               className="w-full aspect-[3/4] relative overflow-hidden"
               style={{
-                backgroundColor: "hsl(40,20%,94%)",
+                backgroundColor: "hsl(40,30%,97%)",
                 boxShadow: "0 4px 24px hsla(220,12%,20%,0.08)",
               }}
             >
