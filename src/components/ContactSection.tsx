@@ -193,18 +193,67 @@ export default function ContactSection() {
 
       {/* FOOTER */}
       <footer
-        className="px-8 md:px-20 py-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+        className="px-8 md:px-20 pt-10 pb-12"
         style={{ borderTop: "1px solid hsl(35,25%,85%)" }}
       >
-        <span
-          className="font-cormorant text-base uppercase"
-          style={{ color: "hsl(220,12%,40%)", letterSpacing: "0.18em" }}
-        >
-          С. Водопьянов
-        </span>
-        <p className="font-golos text-xs" style={{ color: "hsl(35,15%,60%)" }}>
-          Персональная практика · Москва
-        </p>
+        {/* Top row: logo + nav links */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+          <span
+            className="font-cormorant text-xl uppercase"
+            style={{ color: "hsl(220,12%,22%)", letterSpacing: "0.22em" }}
+          >
+            СВ
+          </span>
+          <div className="flex flex-wrap gap-6">
+            <a
+              href="/about"
+              className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+              style={{ color: "hsl(220,12%,36%)" }}
+            >
+              Обо мне
+            </a>
+            <a
+              href="/observations"
+              className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+              style={{ color: "hsl(220,12%,36%)" }}
+            >
+              Наблюдения
+            </a>
+            <a
+              href="#contact"
+              className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+              style={{ color: "hsl(220,12%,36%)" }}
+            >
+              Записаться
+            </a>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ height: "1px", backgroundColor: "hsl(35,20%,88%)", marginBottom: "1.5rem" }} />
+
+        {/* Bottom row: legal */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <p className="font-golos text-xs leading-relaxed" style={{ color: "hsl(35,15%,58%)" }}>
+            © 2026 ИП Водопьянов С.Г.&nbsp;&nbsp;·&nbsp;&nbsp;ОГРНИП 321508100047334&nbsp;&nbsp;·&nbsp;&nbsp;Все права защищены
+          </p>
+          <div className="flex gap-6">
+            <a
+              href="/privacy"
+              className="font-golos text-xs transition-opacity hover:opacity-50"
+              style={{ color: "hsl(220,12%,48%)" }}
+            >
+              Политика конфиденциальности
+            </a>
+            <a
+              href="/offer"
+              className="font-golos text-xs transition-opacity hover:opacity-50"
+              style={{ color: "hsl(220,12%,48%)" }}
+            >
+              Оферта
+            </a>
+          </div>
+        </div>
       </footer>
     </>
   );
