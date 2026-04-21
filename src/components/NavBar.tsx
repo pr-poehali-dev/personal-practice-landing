@@ -44,6 +44,7 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
   const navLinks = [
     { to: "/about", label: "Обо мне" },
     { to: "/observations", label: "Наблюдения" },
+    { to: "https://osteopatplus.ru", label: "Телесные практики", external: true },
     { to: "/contacts", label: "Контакты" },
   ];
 
@@ -67,16 +68,29 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10">
-          {navLinks.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
-              style={{ color: textColor }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {navLinks.map((l) =>
+            l.external ? (
+              <a
+                key={l.to}
+                href={l.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+                style={{ color: textColor }}
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
+                style={{ color: textColor }}
+              >
+                {l.label}
+              </Link>
+            )
+          )}
           <button
             onClick={handleContact}
             className="font-golos text-xs tracking-[0.18em] uppercase transition-opacity hover:opacity-50"
@@ -125,20 +139,37 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
           pointerEvents: menuOpen ? "auto" : "none",
         }}
       >
-        {navLinks.map((l) => (
-          <Link
-            key={l.to}
-            to={l.to}
-            className="font-cormorant font-light uppercase"
-            style={{
-              fontSize: "2rem",
-              color: isDark ? "hsl(40,30%,97%)" : "hsl(220,12%,16%)",
-              letterSpacing: "0.12em",
-            }}
-          >
-            {l.label}
-          </Link>
-        ))}
+        {navLinks.map((l) =>
+          l.external ? (
+            <a
+              key={l.to}
+              href={l.to}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-cormorant font-light uppercase"
+              style={{
+                fontSize: "2rem",
+                color: isDark ? "hsl(40,30%,97%)" : "hsl(220,12%,16%)",
+                letterSpacing: "0.12em",
+              }}
+            >
+              {l.label}
+            </a>
+          ) : (
+            <Link
+              key={l.to}
+              to={l.to}
+              className="font-cormorant font-light uppercase"
+              style={{
+                fontSize: "2rem",
+                color: isDark ? "hsl(40,30%,97%)" : "hsl(220,12%,16%)",
+                letterSpacing: "0.12em",
+              }}
+            >
+              {l.label}
+            </Link>
+          )
+        )}
         <button
           onClick={handleContact}
           className="font-cormorant font-light uppercase"
