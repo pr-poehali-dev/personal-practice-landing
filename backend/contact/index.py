@@ -1,10 +1,11 @@
 import json
 import os
 import urllib.request
+import psycopg2
 
 
 def handler(event: dict, context) -> dict:
-    """Принимает заявку с сайта и отправляет уведомление в Telegram."""
+    """Принимает заявку с сайта, сохраняет в БД и отправляет уведомление в Telegram."""
 
     cors_headers = {
         "Access-Control-Allow-Origin": "*",
@@ -29,6 +30,15 @@ def handler(event: dict, context) -> dict:
 
     if not name or not contact or not message:
         return {"statusCode": 400, "headers": cors_headers, "body": json.dumps({"error": "Missing required fields"})}
+
+    conn = psycopg2.connect(os.environ["DATABASE_URL"])
+    cur = conn.cursor()
+    cur.execute(
+        "INSERT INTO contacts (name, contact, message, telegram_sent) VALUES (%s, %s, %s, %s) RETURNING id",
+        (name, contact, message, False)
+    )
+    row_id = cur.fetchone()[0]
+    conn.commit()
 
     token = os.environ["TELEGRAM_BOT_TOKEN"]
     chat_id = "387846596"
@@ -56,11 +66,15 @@ def handler(event: dict, context) -> dict:
     try:
         with urllib.request.urlopen(req, timeout=10) as resp:
             resp_body = json.loads(resp.read())
-            if not resp_body.get("ok"):
+            if resp_body.get("ok"):
+                cur.execute("UPDATE contacts SET telegram_sent = TRUE WHERE id = %s", (row_id,))
+                conn.commit()
+            else:
                 print(f"[TG ERROR] {resp_body}")
-                return {"statusCode": 500, "headers": cors_headers, "body": json.dumps({"error": "Telegram error"})}
     except Exception as e:
         print(f"[TG ERROR] {type(e).__name__}: {e}")
-        return {"statusCode": 500, "headers": cors_headers, "body": json.dumps({"error": str(e)})}
+    finally:
+        cur.close()
+        conn.close()
 
     return {"statusCode": 200, "headers": cors_headers, "body": json.dumps({"ok": True})}
