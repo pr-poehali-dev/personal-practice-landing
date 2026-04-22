@@ -44,7 +44,7 @@ export default function NavBar({ variant = "default" }: NavBarProps) {
   const navLinks = [
     { to: "/about", label: "Обо мне" },
     { to: "/observations", label: "Наблюдения" },
-    { to: "https://osteopatplus.ru", label: "Телесные практики", external: true },
+    // { to: "https://osteopatplus.ru", label: "Телесные практики", external: true },
     { to: "/contacts", label: "Контакты" },
   ];
 
